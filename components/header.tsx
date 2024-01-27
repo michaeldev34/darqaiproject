@@ -14,6 +14,7 @@ import { UserMenu } from '@/components/user-menu'
 import { SidebarMobile } from './sidebar-mobile'
 import { SidebarToggle } from './sidebar-toggle'
 import { ChatHistory } from './chat-history'
+import Image from 'next/image'
 
 async function UserOrLogin() {
   const session = await auth()
@@ -54,25 +55,16 @@ export function Header() {
           <UserOrLogin />
         </React.Suspense>
       </div>
-      <div className="flex items-center justify-end space-x-2">
-        <a
-          target="_blank"
-          href="https://github.com/vercel/nextjs-ai-chatbot/"
-          rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: 'outline' }))}
-        >
-          <IconGitHub />
-          <span className="hidden ml-2 md:flex">GitHub</span>
-        </a>
-        <a
-          href="https://github.com/vercel/nextjs-ai-chatbot/"
-          target="_blank"
-          className={cn(buttonVariants())}
-        >
-          <IconVercel className="mr-2" />
-          <span className="hidden sm:block">Deploy to Vercel</span>
-          <span className="sm:hidden">Deploy</span>
-        </a>
+      <div className=" flex gap-4 items-center">
+        <div className="rounded-full p-1  bg-gray-600">
+          <Image src="/icon.png" alt="icon" width={32} height={32} />
+        </div>
+        <h1 className="text-base  sm:text-xl tracking-wider">BLACKROBE</h1>
+      </div>
+      <div className="hidden sm:block">
+        <button className="border border-border rounded-lg p-1 md:p-2 bg-background hover:bg-popover-foreground hover:text-background  transition-all">
+          Get Premium
+        </button>
       </div>
     </header>
   )

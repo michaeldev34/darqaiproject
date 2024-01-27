@@ -7,6 +7,20 @@ module.exports = {
         hostname: 'avatars.githubusercontent.com',
         port: '',
         pathname: '**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '**'
+      }
+    ]
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [{ key: 'referrer-policy', value: 'no-referrer' }]
       }
     ]
   }
